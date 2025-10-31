@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //conexion a la base de datos
-mongoose.connect('',
+mongoose.connect(process.env.MONGODB_URI,
     {useNewUrlParser: true, useUnifiedTopology: true}
 )
     .then(() => console.log("Conexión a MongoDB exitosa"))
@@ -35,3 +35,4 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Servidor ejecutándose en el puerto ${port}`);
 });
+
